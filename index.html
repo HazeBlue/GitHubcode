@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevTool Hub - 开发者工具导航，集合最实用的开发资源">
+    <meta name="author" content="MiniMax Agent">
+    <title>DevTool Hub - 开发者工具导航</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles" class="particles"></div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <span class="logo-text">DevTool Hub</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link active">
+                        <i data-lucide="home"></i>
+                        <span>首页</span>
+                    </a>
+                    <a href="#tools" class="nav-link">
+                        <i data-lucide="box"></i>
+                        <span>工具</span>
+                    </a>
+                    <a href="#about" class="nav-link">
+                        <i data-lucide="info"></i>
+                        <span>关于</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="nav-link github-link">
+                        <i data-lucide="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles"></i>
+                    <span>开发者工具导航</span>
+                </div>
+                <h1 class="hero-title">
+                    发现最优质的
+                    <span class="gradient-text">开发工具</span>
+                </h1>
+                <p class="hero-description">
+                    精心整理的前端、后端、设计、协作等各类开发资源，帮助开发者提升效率，加速项目开发。
+                </p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">
+                        <i data-lucide="compass"></i>
+                        <span>探索工具</span>
+                    </a>
+                    <a href="https://github.com/HazeBlue/GitHubcode" target="_blank" class="btn btn-secondary">
+                        <i data-lucide="star"></i>
+                        <span>Star 项目</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="toolsCount">50+</span>
+                        <span class="stat-label">精选工具</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">分类齐全</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">免费使用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="window-title">devtools.js</span>
+                    </div>
+                    <div class="window-content">
+                        <pre><code><span class="code-comment">// 探索优秀的开发工具</span>
+<span class="code-keyword">const</span> <span class="code-variable">devtools</span> = {
+  <span class="code-property">frontend</span>: [<span class="code-string">'VS Code'</span>, <span class="code-string">'Tailwind'</span>],
+  <span class="code-property">design</span>: [<span class="code-string">'Figma'</span>, <span class="code-string">'Unsplash'</span>],
+  <span class="code-property">api</span>: [<span class="code-string">'Postman'</span>, <span class="code-string">'Swagger'</span>],
+  <span class="code-property">learn</span>: [<span class="code-string">'MDN'</span>, <span class="code-string">'Stack Overflow'</span>]
+};
+
+<span class="code-function">devtools</span>.<span class="code-method">explore</span>(); <span class="code-comment">// 🚀</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section" id="tools">
+        <div class="container">
+            <div class="search-controls">
+                <div class="search-box">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜索工具名称或描述...">
+                    <button class="search-clear" id="searchClear" style="display: none;">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all">
+                        <i data-lucide="layout-grid"></i>
+                        <span>全部</span>
+                    </button>
+                    <button class="filter-tab" data-category="frontend">
+                        <i data-lucide="monitor"></i>
+                        <span>前端</span>
+                    </button>
+                    <button class="filter-tab" data-category="design">
+                        <i data-lucide="palette"></i>
+                        <span>设计</span>
+                    </button>
+                    <button class="filter-tab" data-category="backend">
+                        <i data-lucide="server"></i>
+                        <span>后端</span>
+                    </button>
+                    <button class="filter-tab" data-category="learning">
+                        <i data-lucide="book-open"></i>
+                        <span>学习</span>
+                    </button>
+                    <button class="filter-tab" data-category="collaboration">
+                        <i data-lucide="users"></i>
+                        <span>协作</span>
+                    </button>
+                </div>
+            </div>
+            <div class="results-info">
+                <span class="results-count" id="resultsCount">显示 50 个工具</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Grid Section -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-grid" id="toolsGrid">
+                <!-- Tools will be dynamically inserted here -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">
+                    <i data-lucide="search-x"></i>
+                </div>
+                <h3>未找到匹配的工具</h3>
+                <p>请尝试其他关键词或浏览全部工具</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">为什么选择我们</span>
+                <h2 class="section-title">精心策划的开发资源</h2>
+                <p class="section-description">
+                    我们为您筛选了最优质、最实用的开发工具，帮助您专注于创造价值
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <h3 class="feature-title">精选品质</h3>
+                    <p class="feature-description">
+                        所有工具都经过精心筛选，确保质量和实用性
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="feature-title">高效便捷</h3>
+                    <p class="feature-description">
+                        快速搜索和分类功能，让您在几秒内找到所需工具
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="heart-handshake"></i>
+                    </div>
+                    <h3 class="feature-title">社区共建</h3>
+                    <p class="feature-description">
+                        开放源码，欢迎贡献和改进，共同打造更好的资源库
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="refresh-cw"></i>
+                    </div>
+                    <h3 class="feature-title">持续更新</h3>
+                    <p class="feature-description">
+                        定期更新工具列表，跟进行业最新动态和技术趋势
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">准备好提升开发效率了吗？</h2>
+                <p class="cta-description">
+                    立即收藏此页面，开启高效开发之旅
+                </p>
+                <div class="cta-actions">
+                    <a href="#tools" class="btn btn-primary btn-large">
+                        <i data-lucide="rocket"></i>
+                        <span>开始探索</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline btn-large">
+                        <i data-lucide="github"></i>
+                        <span>贡献工具</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <span class="logo-text">DevTool Hub</span>
+                    </div>
+                    <p class="footer-description">
+                        为开发者打造的优质工具导航平台
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">快速链接</h4>
+                        <ul class="footer-list">
+                            <li><a href="#home">首页</a></li>
+                            <li><a href="#tools">工具导航</a></li>
+                            <li><a href="#about">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">资源分类</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" data-category="frontend">前端工具</a></li>
+                            <li><a href="#" data-category="design">设计资源</a></li>
+                            <li><a href="#" data-category="backend">后端工具</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">联系我们</h4>
+                        <ul class="footer-list">
+                            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                            <li><a href="mailto:hello@example.com">电子邮件</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 DevTool Hub. MIT License. Made with ❤️ by MrHazeBlue.</p>
+                </div>
+                <div class="footer-badges">
+                    <span class="badge">
+                        <i data-lucide="code-2"></i>
+                        HTML + CSS + JS
+                    </span>
+                    <span class="badge">
+                        <i data-lucide="cloud"></i>
+                        Cloudflare Ready
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
