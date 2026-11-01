@@ -1504,6 +1504,15 @@ url: 'https://emberjs.com',
         tags: ['Node.js', '在线', 'npm'],
         url: 'https://runkit.com',
         icon: 'package'
+    },
+    {
+        id: 166,
+        name: 'agent-qa',
+        category: 'frontend',
+        description: '自然语言网页与移动端测试，内置持久化记忆和自我改进。需 Node.js 24+；早期项目，FSL-1.1-ALv2 限制竞争性商用，模型与设备费用另计。',
+        tags: ['QA', '自然语言', '记忆'],
+        url: 'https://vostride.com',
+        icon: 'code-2'
     }
 ];
 
